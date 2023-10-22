@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wi-Fi Connection</title>
+    <style>
+        /* CSS for the form */
+        .wifi-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        /* CSS for the display section */
+        #connection-details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #connection-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wifi-form" id="wifi-form">
+        <h2>Wi-Fi Connection</h2>
+        <div class="form-group">
+            <label for="wifi-name">Wi-Fi Name:</label>
+            <input type="text" id="wifi-name" placeholder="Enter Wi-Fi Name">
+        </div>
+        <div class="form-group">
+            <label for="wifi-password">Wi-Fi Password:</label>
+            <input type="password" id="wifi-password" placeholder="Enter Wi-Fi Password">
+        </div>
+        <button id="connect-button">Connect</button>
+    </div>
+
+    <div id="connection-details">
+        <h2>Connected Wi-Fi Details</h2>
+        <p><strong>Wi-Fi Name:</strong> <span id="display-name"></span></p>
+        <p><strong>Wi-Fi Password:</strong> <span id="display-password"></span></p>
+    </div>
+
+    <script>
+        // JavaScript to handle the form and display entered details
+        const wifiForm = document.getElementById("wifi-form");
+        const wifiNameInput = document.getElementById("wifi-name");
+        const wifiPasswordInput = document.getElementById("wifi-password");
+        const displayWifiName = document.getElementById("display-name");
+        const displayWifiPassword = document.getElementById("display-password");
+        const connectionDetails = document.getElementById("connection-details");
+        const connectButton = document.getElementById("connect-button");
+
+        connectButton.addEventListener("click", function () {
+            const wifiName = wifiNameInput.value;
+            const wifiPassword = wifiPasswordInput.value;
+
+            displayWifiName.textContent = wifiName;
+            displayWifiPassword.textContent = wifiPassword;
+
+            wifiForm.style.display = "none";
+            connectionDetails.style.display = "block";
+        });
+    </script>
+</body>
+</html>
